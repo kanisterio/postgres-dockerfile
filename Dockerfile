@@ -29,11 +29,12 @@ RUN set -x \
 	&& apt-get purge -y --auto-remove ca-certificates wget
 
 RUN set -x \
-    && apt-get update \
-    && apt-get install -y curl groff lzop pv postgresql-client python3-pip \
-    && pip3 install --upgrade pip \
-    && pip3 install wal-e[aws] \
-    && pip3 install awscli
+	&& apt-get update \
+	&& apt-get install -y curl groff lzop pv postgresql-client python3-pip \
+	&& pip3 install --upgrade pip \
+	&& pip3 install wal-e[aws] \
+	&& pip3 install awscli \
+	&& (cd /usr/local/bin; curl -L https://github.com/wal-g/wal-g/releases/download/v0.1.7/wal-g.linux-amd64.tar.gz | tar -zxv)
 
 # make the "en_US.UTF-8" locale so postgres will be utf-8 enabled by default
 RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \

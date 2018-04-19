@@ -30,7 +30,7 @@ RUN set -x \
 
 RUN set -x \
 	&& apt-get update \
-	&& apt-get install -y curl groff lzop pv postgresql-client python3-pip \
+	&& apt-get install -y curl groff lzop pv postgresql-client python3-pip daemontools \
 	&& pip3 install --upgrade pip \
 	&& pip3 install wal-e[aws] \
 	&& pip3 install awscli \
